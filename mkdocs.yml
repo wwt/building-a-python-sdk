@@ -1,0 +1,54 @@
+---
+site_name: "Build a Python SDK"
+nav:
+  - Setup: module-0.md
+  - Python Package: module-1.md
+  - REST Client Module: module-2.md
+  - REST API Wrapper Module: module-3.md
+  - The Calling Script: module-4.md
+
+# Repository
+repo_name: "wwt/devasc-building-a-python-sdk"
+repo_url: "https://github.com/wwt/devasc-building-a-python-sdk"
+edit_uri: ""
+
+# Configuration
+theme:
+  name: material
+  language: en
+  features:
+    - navigation.sections
+    - navigation.tabs
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to dark mode
+    - scheme: slate
+      primary: red
+      accent: red
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to light mode
+  font:
+    text: Roboto
+    code: Roboto Mono
+  logo: img/logo.svg
+  shortcuts:
+    help: 191    # ?
+    next: 78     # n
+    previous: 80 # p
+    search: 83   # s
+
+markdown_extensions:
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - admonition
+  - attr_list
+  - pymdownx.tasklist
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - pymdownx.keys
