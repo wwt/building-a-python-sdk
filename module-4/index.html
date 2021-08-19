@@ -247,6 +247,30 @@
   </li>
 
       
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../next_steps/" class="md-tabs__link">
+      Call to Action
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../conclusion/" class="md-tabs__link">
+      Wrap up
+    </a>
+  </li>
+
+      
     </ul>
   </div>
 </nav>
@@ -375,6 +399,36 @@
   
 
     
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../next_steps/" class="md-nav__link">
+        Call to Action
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../conclusion/" class="md-nav__link">
+        Wrap up
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -409,12 +463,19 @@
 <p>Now that you have created the minimum elements of your DNAC SDK you can use it in a python script just like any other module or package.  </p>
 <p>STEP 1. CREATE a file named <code>test_dnac_sdk.py</code></p>
 <p>STEP 2. PASTE the following code into the file</p>
-<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
-<span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
-<span class="kn">from</span> <span class="nn">dnac.dnac_api</span> <span class="kn">import</span> <span class="n">dnaCenterApi</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
+<span class="kn">from</span> <span class="nn">dnac.client</span> <span class="kn">import</span> <span class="n">dnaCenterApi</span>
 
-<span class="n">dnac</span> <span class="o">=</span> <span class="n">dnaCenterApi</span><span class="p">(</span><span class="s1">&#39;sandboxdnac2.cisco.com&#39;</span><span class="p">,</span> <span class="s1">&#39;devnetuser&#39;</span><span class="p">,</span> <span class="s1">&#39;Cisco123!&#39;</span><span class="p">)</span>
-<span class="c1"># dnac.get_sites()</span>
+<span class="n">dnac</span> <span class="o">=</span> <span class="n">dnaCenterApi</span><span class="p">(</span>
+    <span class="s1">&#39;sandboxdnac2.cisco.com&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;devnetuser&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Cisco123!&#39;</span><span class="p">,</span>
+    <span class="n">verify</span><span class="o">=</span><span class="kc">False</span>
+<span class="p">)</span>
+
+<span class="n">sites</span> <span class="o">=</span> <span class="n">dnac</span><span class="o">.</span><span class="n">get_sites</span><span class="p">()</span>
+<span class="n">pprint</span><span class="p">(</span><span class="n">sites</span><span class="p">)</span>
+
 <span class="n">devices</span> <span class="o">=</span> <span class="n">dnac</span><span class="o">.</span><span class="n">get_network_devices</span><span class="p">()</span>
 <span class="n">pprint</span><span class="p">(</span><span class="n">devices</span><span class="p">)</span>
 </code></pre></div>
@@ -455,6 +516,21 @@
           </div>
         </a>
       
+      
+        
+        <a href="../next_steps/" class="md-footer__link md-footer__link--next" aria-label="Next: Call to Action" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Call to Action
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
       
     </nav>
   

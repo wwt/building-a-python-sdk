@@ -65,7 +65,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#create-a-python-module-rest-client" class="md-skip">
+        <a href="#create-a-python-module-session" class="md-skip">
           Skip to content
         </a>
       
@@ -247,6 +247,30 @@
   </li>
 
       
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../next_steps/" class="md-tabs__link">
+      Call to Action
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../conclusion/" class="md-tabs__link">
+      Wrap up
+    </a>
+  </li>
+
+      
     </ul>
   </div>
 </nav>
@@ -365,26 +389,18 @@
     Create the File
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#create-session-method" class="md-nav__link">
-    Create Session Method
+    <nav class="md-nav" aria-label="Create the File">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-does-this-do" class="md-nav__link">
+    What does this do?
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#make-request-method" class="md-nav__link">
-    Make Request Method
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#full-file" class="md-nav__link">
-    Full File
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -426,6 +442,36 @@
   
 
     
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../next_steps/" class="md-nav__link">
+        Call to Action
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../conclusion/" class="md-nav__link">
+        Wrap up
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -456,26 +502,18 @@
     Create the File
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#create-session-method" class="md-nav__link">
-    Create Session Method
+    <nav class="md-nav" aria-label="Create the File">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-does-this-do" class="md-nav__link">
+    What does this do?
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#make-request-method" class="md-nav__link">
-    Make Request Method
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#full-file" class="md-nav__link">
-    Full File
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -492,127 +530,57 @@
               
                 
                 
-                <h1 id="create-a-python-module-rest-client">Create a Python Module: REST Client</h1>
-<p>Packages are directories that contain the <code>__init.py_</code> file and some number of Python files called modules.  </p>
+                <h1 id="create-a-python-module-session">Create a Python Module: session</h1>
+<p>Packages are directories that contain the <code>__init.py_</code> file and some number of Python files called modules.   This section will guide you through creating the first Python module to accomplish the REST Client functionality. </p>
 <blockquote>
 <p><em>Modules in Python are simply Python files with a .py extension. The name of the module will be the name of the file. A Python module can have a set of functions, classes or variables defined and implemented.</em></p>
 <p>​ <em>ref: https://www.learnpython.org/en/Modules_and_Packages</em></p>
 </blockquote>
 <h2 id="create-the-file">Create the File</h2>
-<p><strong>STEP 1</strong>. <em>CREATE</em> a file named <strong>client.py</strong> in the <code>dnac</code> folder</p>
-<p>This file will be our REST Client in our SDK and will be responsible for all REST functionality including <strong><em>authentication</em></strong> and <strong><em>requests</em></strong> (like PUT/POST/GET/DELETE).</p>
-<p><strong>STEP 2</strong>. <em>ADD</em> the base client text</p>
-<p>This is a REST client and will utilize the <code>requests</code> package for making REST calls. The <code>requests</code> package is the de facto standard Python package for making HTTP requests.  You can read more about the Python package <img alt="➡" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/27a1.svg" title=":arrow_right:" /> <a href="https://docs.python-requests.org/en/master/">requests</a></p>
+<p><strong>STEP 1</strong>. <em>CREATE</em> a file named <strong>session.py</strong> in the <code>dnac</code> folder</p>
+<p>This Python file (module) will sub-class the <code>requests.Session</code> class and serve as our object to handle all things related to the HTTP(S) session with DNA Center.  </p>
+<p><strong>STEP 2</strong>. <em>ADD</em> the base session text</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+</div>
+<p>​    The <code>requests</code> package is the de facto standard Python package for making HTTP requests.  You can read more about the Python package <img alt="➡" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/27a1.svg" title=":arrow_right:" /> <a href="https://docs.python-requests.org/en/master/">requests</a></p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 
 <span class="kn">import</span> <span class="nn">requests</span>
-<span class="kn">from</span> <span class="nn">requests.packages.urllib3.exceptions</span> <span class="kn">import</span> <span class="n">InsecureRequestWarning</span>
-
-<span class="n">requests</span><span class="o">.</span><span class="n">packages</span><span class="o">.</span><span class="n">urllib3</span><span class="o">.</span><span class="n">disable_warnings</span><span class="p">(</span><span class="n">InsecureRequestWarning</span><span class="p">)</span>
-
-<span class="n">LOGIN_ENDPOINT</span> <span class="o">=</span> <span class="s1">&#39;/dna/system/api/v1/auth/token&#39;</span>
-<span class="n">DISABLE_INSECURE_WARNINGS</span> <span class="o">=</span> <span class="kc">True</span>
-
-<span class="k">class</span> <span class="nc">dnacClient</span><span class="p">():</span>
 
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">host</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="n">verify</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; Initiallize the Client &quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">host</span> <span class="o">=</span> <span class="n">host</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">username</span> <span class="o">=</span> <span class="n">username</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">password</span> <span class="o">=</span> <span class="n">password</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">session</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">verify</span> <span class="o">=</span> <span class="n">verify</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">login_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;https://</span><span class="si">{</span><span class="n">host</span><span class="si">}{</span><span class="n">LOGIN_ENDPOINT</span><span class="si">}</span><span class="s2">&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">token</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+<span class="k">class</span> <span class="nc">dnacApiSession</span><span class="p">(</span><span class="n">requests</span><span class="o">.</span><span class="n">Session</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Session Wrapper for DNAC</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
-        <span class="k">if</span> <span class="n">DISABLE_INSECURE_WARNINGS</span><span class="p">:</span>
-            <span class="n">requests</span><span class="o">.</span><span class="n">packages</span><span class="o">.</span><span class="n">urllib3</span><span class="o">.</span><span class="n">disable_warnings</span><span class="p">(</span><span class="n">InsecureRequestWarning</span><span class="p">)</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialize Object</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">dnacApiSession</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">create_session</span><span class="p">(</span><span class="n">host</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="n">verify</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">headers</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
+            <span class="p">{</span>
+                <span class="s1">&#39;Content-Type&#39;</span><span class="p">:</span> <span class="s1">&#39;application/json&#39;</span>
+            <span class="p">}</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">set_basic_auth</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Set the auth attribute of the session object</span>
+<span class="sd">        params:</span>
+
+<span class="sd">          username (str) - login username</span>
+<span class="sd">          password (str) - login password</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">auth</span> <span class="o">=</span> <span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span>
 </code></pre></div>
-<h2 id="create-session-method">Create Session Method</h2>
-<p>This method will be used during the instantiation of the object from our class definition.  It will establish a session with the DNA Center appliance and obtain a valid token for all subsequent call to that DNA Center. </p>
-<p>STEP 1.  <em>PASTE</em> the following into the <code>client.py</code> file</p>
-<div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">create_session</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">host</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="n">verify</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; create session to DNA Center &quot;&quot;&quot;</span>
-
-        <span class="n">_session</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">session</span><span class="p">()</span>
-        <span class="n">_session</span><span class="o">.</span><span class="n">verify</span> <span class="o">=</span> <span class="n">verify</span>
-        <span class="n">_session</span><span class="o">.</span><span class="n">auth</span> <span class="o">=</span> <span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span>
-
-        <span class="n">_login_results</span> <span class="o">=</span> <span class="n">_session</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">login_url</span><span class="p">)</span>
-
-        <span class="k">if</span> <span class="n">_login_results</span><span class="o">.</span><span class="n">ok</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">session</span> <span class="o">=</span> <span class="n">_session</span>
-            <span class="c1"># self.api = dnaCenterApi(self)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">token</span> <span class="o">=</span> <span class="n">_login_results</span><span class="o">.</span><span class="n">json</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;Token&quot;</span><span class="p">)</span>
-            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;successfully established session to </span><span class="si">{</span><span class="n">host</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;failed to establish session: &quot;</span><span class="p">,</span> <span class="n">_session</span><span class="p">)</span>
-</code></pre></div>
-<h2 id="make-request-method">Make Request Method</h2>
-<p>STEP 1.  <em>PASTE</em> the following into the <code>client.py</code> file</p>
-<div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">_make_request</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="n">url</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; make rest request &quot;&quot;&quot;</span>
-
-        <span class="n">results</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="n">method</span><span class="p">,</span><span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">results</span>
-</code></pre></div>
-<h2 id="full-file">Full File</h2>
-<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
-
-<span class="kn">import</span> <span class="nn">requests</span>
-<span class="kn">from</span> <span class="nn">requests.packages.urllib3.exceptions</span> <span class="kn">import</span> <span class="n">InsecureRequestWarning</span>
-
-<span class="n">requests</span><span class="o">.</span><span class="n">packages</span><span class="o">.</span><span class="n">urllib3</span><span class="o">.</span><span class="n">disable_warnings</span><span class="p">(</span><span class="n">InsecureRequestWarning</span><span class="p">)</span>
-
-<span class="n">LOGIN_ENDPOINT</span> <span class="o">=</span> <span class="s1">&#39;/dna/system/api/v1/auth/token&#39;</span>
-<span class="n">DISABLE_INSECURE_WARNINGS</span> <span class="o">=</span> <span class="kc">True</span>
-
-<span class="k">class</span> <span class="nc">dnacClient</span><span class="p">():</span>
-
-
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">host</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="n">verify</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; Initiallize the Client &quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">host</span> <span class="o">=</span> <span class="n">host</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">username</span> <span class="o">=</span> <span class="n">username</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">password</span> <span class="o">=</span> <span class="n">password</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">session</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">verify</span> <span class="o">=</span> <span class="n">verify</span>
-        <span class="c1"># self.api = None</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">login_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;https://</span><span class="si">{</span><span class="n">host</span><span class="si">}{</span><span class="n">LOGIN_ENDPOINT</span><span class="si">}</span><span class="s2">&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">token</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
-
-        <span class="k">if</span> <span class="n">DISABLE_INSECURE_WARNINGS</span><span class="p">:</span>
-            <span class="n">requests</span><span class="o">.</span><span class="n">packages</span><span class="o">.</span><span class="n">urllib3</span><span class="o">.</span><span class="n">disable_warnings</span><span class="p">(</span><span class="n">InsecureRequestWarning</span><span class="p">)</span>
-
-        <span class="bp">self</span><span class="o">.</span><span class="n">create_session</span><span class="p">(</span><span class="n">host</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="n">verify</span><span class="p">)</span>
-
-
-    <span class="k">def</span> <span class="nf">create_session</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">host</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="n">verify</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; create session to DNA Center &quot;&quot;&quot;</span>
-
-        <span class="n">_session</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">session</span><span class="p">()</span>
-        <span class="n">_session</span><span class="o">.</span><span class="n">verify</span> <span class="o">=</span> <span class="n">verify</span>
-        <span class="n">_session</span><span class="o">.</span><span class="n">auth</span> <span class="o">=</span> <span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span>
-
-        <span class="n">_login_results</span> <span class="o">=</span> <span class="n">_session</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">login_url</span><span class="p">)</span>
-
-        <span class="k">if</span> <span class="n">_login_results</span><span class="o">.</span><span class="n">ok</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">session</span> <span class="o">=</span> <span class="n">_session</span>
-            <span class="c1"># self.api = dnaCenterApi(self)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">token</span> <span class="o">=</span> <span class="n">_login_results</span><span class="o">.</span><span class="n">json</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;Token&quot;</span><span class="p">)</span>
-            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;successfully established session to </span><span class="si">{</span><span class="n">host</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;failed to establish session: &quot;</span><span class="p">,</span> <span class="n">_session</span><span class="p">)</span>
-
-    <span class="k">def</span> <span class="nf">_make_request</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="n">url</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot; make rest request &quot;&quot;&quot;</span>
-
-        <span class="n">results</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="n">method</span><span class="p">,</span><span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">results</span>
-</code></pre></div>
+<h3 id="what-does-this-do">What does this do?</h3>
+<p>This Python module illustrates the use of sub-classing, a key concept in object-oriented programming, to utilize all of the existing functionality in the <code>requests</code> package while providing the ability to customize settings for our specific use case.  </p>
+<p>The <code>__init__</code> method calls the <code>__init__</code> method of the parent class (<code>requests.sessions.Session</code>) and sets a header value for all calls.</p>
+<p>The <code>set_basic_auth</code> method sets the attribute named <code>auth</code> of the <code>Session</code> object. </p>
+<p>This simple example illustrates the power and simplicity of object oriented programming. </p>
                 
               
               
