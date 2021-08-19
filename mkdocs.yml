@@ -3,8 +3,8 @@ site_name: "Build a Python SDK"
 nav:
   - Setup: module-0.md
   - Python Package: module-1.md
-  - REST Client Module: module-2.md
-  - REST API Wrapper Module: module-3.md
+  - The Session Module: module-2.md
+  - The API Wrapper Module: module-3.md
   - The Calling Script: module-4.md
   - Call to Action: next_steps.md
   - Wrap up: conclusion.md
