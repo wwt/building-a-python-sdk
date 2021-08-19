@@ -21,4 +21,3 @@ This walk-through assumes knowledge of:
 - Docker
 - Python Fundamentals
 - REST APIs
-- 

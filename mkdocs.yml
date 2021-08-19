@@ -6,6 +6,8 @@ nav:
   - REST Client Module: module-2.md
   - REST API Wrapper Module: module-3.md
   - The Calling Script: module-4.md
+  - Call to Action: next_steps.md
+  - Wrap up: conclusion.md
 
 # Repository
 repo_name: "wwt/devasc-building-a-python-sdk"

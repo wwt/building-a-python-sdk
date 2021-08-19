@@ -24,7 +24,9 @@ In this section you will create a Python package that will become your DNA Cente
 
 ![](_images/create_python_package.png)
 
-!!! success "Can you import this package?"
+!!! question "Can you import this package?"
     If you completed these steps you can now import your package in the python interpreter.
 
 ![image-20210818140324232](_images/python_dnac_import.png)
+
+That's exciting! :tada: You just created your first Python package.  Although it doesn't have any functional purpose yet, you learned some of the foundational mechanics required to start the process.

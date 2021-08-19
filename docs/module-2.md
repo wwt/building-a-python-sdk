@@ -1,6 +1,6 @@
-# Create a Python Module: REST Client
+# Create a Python Module: session
 
-Packages are directories that contain the `__init.py_` file and some number of Python files called modules.  
+Packages are directories that contain the `__init.py_` file and some number of Python files called modules.   This section will guide you through creating the first Python module to accomplish the REST Client functionality. 
 
 > *Modules in Python are simply Python files with a .py extension. The name of the module will be the name of the file. A Python module can have a set of functions, classes or variables defined and implemented.*
 >
@@ -8,139 +8,57 @@ Packages are directories that contain the `__init.py_` file and some number of P
 
 ## Create the File
 
-**STEP 1**. *CREATE* a file named **client.py** in the `dnac` folder
+**STEP 1**. *CREATE* a file named **session.py** in the `dnac` folder
 
-This file will be our REST Client in our SDK and will be responsible for all REST functionality including ***authentication*** and ***requests*** (like PUT/POST/GET/DELETE).
+This Python file (module) will sub-class the `requests.Session` class and serve as our object to handle all things related to the HTTP(S) session with DNA Center.  
 
-**STEP 2**. *ADD* the base client text
+**STEP 2**. *ADD* the base session text
 
-This is a REST client and will utilize the `requests` package for making REST calls. The `requests` package is the de facto standard Python package for making HTTP requests.  You can read more about the Python package :arrow_right: [requests](https://docs.python-requests.org/en/master/)
+!!! note
 
-```python
-#!/usr/bin/env python
-
-import requests
-from requests.packages.urllib3.exceptions import InsecureRequestWarning
-
-requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
-
-LOGIN_ENDPOINT = '/dna/system/api/v1/auth/token'
-DISABLE_INSECURE_WARNINGS = True
-
-class dnacClient():
-
-
-    def __init__(self, host, username, password, verify=False):
-        """ Initiallize the Client """
-        self.host = host
-        self.username = username
-        self.password = password
-        self.session = None
-        self.verify = verify
-        self.login_url = f"https://{host}{LOGIN_ENDPOINT}"
-        self.token = ''
-
-        if DISABLE_INSECURE_WARNINGS:
-            requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
-
-        self.create_session(host, username, password, verify)
-```
-
-
-
-## Create Session Method
-
-This method will be used during the instantiation of the object from our class definition.  It will establish a session with the DNA Center appliance and obtain a valid token for all subsequent call to that DNA Center. 
-
-STEP 1.  *PASTE* the following into the `client.py` file
-
-```python
-    def create_session(self, host, username, password, verify):
-        """ create session to DNA Center """
-
-        _session = requests.session()
-        _session.verify = verify
-        _session.auth = (username, password)
-
-        _login_results = _session.post(self.login_url)
-
-        if _login_results.ok:
-            self.session = _session
-            # self.api = dnaCenterApi(self)
-            self.token = _login_results.json().get("Token")
-            print(f"successfully established session to {host}")
-        else:
-            print("failed to establish session: ", _session)
-
-```
-
-## Make Request Method
-
-STEP 1.  *PASTE* the following into the `client.py` file
-
-```python
-    def _make_request(self, method, url):
-        """ make rest request """
-
-        results = self.session.request(method,url, data=None)
-        return results
-```
-
-## Full File
+​    The `requests` package is the de facto standard Python package for making HTTP requests.  You can read more about the Python package :arrow_right: [requests](https://docs.python-requests.org/en/master/)
 
 ```python
 #!/usr/bin/env python
 
 import requests
-from requests.packages.urllib3.exceptions import InsecureRequestWarning
-
-requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
-
-LOGIN_ENDPOINT = '/dna/system/api/v1/auth/token'
-DISABLE_INSECURE_WARNINGS = True
-
-class dnacClient():
 
 
-    def __init__(self, host, username, password, verify=False):
-        """ Initiallize the Client """
-        self.host = host
-        self.username = username
-        self.password = password
-        self.session = None
-        self.verify = verify
-        # self.api = None
-        self.login_url = f"https://{host}{LOGIN_ENDPOINT}"
-        self.token = ''
+class dnacApiSession(requests.Session):
+    """
+    Session Wrapper for DNAC
+    """
 
-        if DISABLE_INSECURE_WARNINGS:
-            requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
+    def __init__(self, *args, **kwargs):
+        """
+        Initialize Object
+        """
+        super(dnacApiSession, self).__init__(*args, **kwargs)
 
-        self.create_session(host, username, password, verify)
+        self.headers.update(
+            {
+                'Content-Type': 'application/json'
+            }
+        )
 
+    def set_basic_auth(self, username, password):
+        """
+        Set the auth attribute of the session object
+        params:
 
-    def create_session(self, host, username, password, verify):
-        """ create session to DNA Center """
-
-        _session = requests.session()
-        _session.verify = verify
-        _session.auth = (username, password)
-
-        _login_results = _session.post(self.login_url)
-
-        if _login_results.ok:
-            self.session = _session
-            # self.api = dnaCenterApi(self)
-            self.token = _login_results.json().get("Token")
-            print(f"successfully established session to {host}")
-        else:
-            print("failed to establish session: ", _session)
-
-    def _make_request(self, method, url):
-        """ make rest request """
-
-        results = self.session.request(method,url, data=None)
-        return results
-
+          username (str) - login username
+          password (str) - login password
+        """
+        self.auth = (username, password)
 ```
+
+### What does this do?
+
+This Python module illustrates the use of sub-classing, a key concept in object-oriented programming, to utilize all of the existing functionality in the `requests` package while providing the ability to customize settings for our specific use case.  
+
+The `__init__` method calls the `__init__` method of the parent class (`requests.sessions.Session`) and sets a header value for all calls.
+
+The `set_basic_auth` method sets the attribute named `auth` of the `Session` object. 
+
+This simple example illustrates the power and simplicity of object oriented programming. 
 
