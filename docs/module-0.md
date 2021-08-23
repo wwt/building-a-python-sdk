@@ -8,7 +8,7 @@ As with any development project there are some initial setup steps that are requ
 
 One of the very first skills you learn when starting the journey to becoming an automation engineer is version control. This is a key skill in the development/automation lifecycle.  There are many, many command line options and details to understand about `git` but in regular and daily workflow you will find yourself using a subset of them. 
 
-![image-20210823082403940](_images/image-20210823082403940.png)
+![git_basics_6_commands.png](_images/git_basics_6_commands.png)
 
 Many IDE's provide version control integration that allows you to utilize the UI in order to perform many of these functions.  You can chose what method works best for your personal workflow.  The steps below show how to clone a repo from a terminal window.
 

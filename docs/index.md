@@ -27,11 +27,11 @@ This walk-through assumes knowledge of:
 
 Through this guided walk-through you will build a "relatively" simple Python Software Development Kit (SDK) to interface with Cisco's DNA Center.  Fundamentally, this SDK will have the following high-level  architecture:
 
-<img src="../_images/image-20210823095522870.png" alt="image-20210823095522870" style="zoom:50%;" />
+<img src="../_images/sdk_architecture.png" alt="sdk_architecture" style="zoom:50%;" />
 
 The two Python modules together will enable the communication with DNA Center.  `session.py` will be responsible for maintaining the attributes related to establishing an HTTP session with the target host and `client.py` will act as the interface for the consumer of your SDK. 
 
-![image-20210823104957976](_images/image-20210823104957976.png)
+![python_sdk_flow.png](_images/python_sdk_flow.png)
 
 ## Next Up
 

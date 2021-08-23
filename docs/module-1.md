@@ -34,6 +34,6 @@ The first task is to create the **package** that will contain our Python modules
 !!! question "Can you import this package?"
     If you completed these steps you can now import your package in the python interpreter.
 
-![image-20210818140324232](_images/python_dnac_import.png)
+![python_dnac_import.png](_images/python_dnac_import.png)
 
 That's exciting! :tada: You just created your first Python package.  Although it doesn't have any functional purpose yet, you learned some of the foundational mechanics required to start the process.
