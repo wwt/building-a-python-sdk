@@ -162,13 +162,13 @@
     
       <div class="md-header__source">
         
-<a href="https://github.com/wwt/devasc-building-a-python-sdk" title="Go to repository" class="md-source" data-md-component="source">
+<a href="https://github.com/wwt/building-a-python-sdk" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
   </div>
   <div class="md-source__repository">
-    wwt/devasc-building-a-python-sdk
+    wwt/building-a-python-sdk
   </div>
 </a>
       </div>
@@ -184,6 +184,18 @@
 <nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
   <div class="md-tabs__inner md-grid">
     <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href=".." class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
       
         
   
@@ -301,18 +313,33 @@
   
     <div class="md-nav__source">
       
-<a href="https://github.com/wwt/devasc-building-a-python-sdk" title="Go to repository" class="md-source" data-md-component="source">
+<a href="https://github.com/wwt/building-a-python-sdk" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
   </div>
   <div class="md-source__repository">
-    wwt/devasc-building-a-python-sdk
+    wwt/building-a-python-sdk
   </div>
 </a>
     </div>
   
   <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
     
       
       
@@ -531,7 +558,7 @@
                 
                 
                 <h1 id="create-a-python-module-session">Create a Python Module: session</h1>
-<p>Packages are directories that contain the <code>__init.py_</code> file and some number of Python files called modules.   This section will guide you through creating the first Python module to accomplish the REST Client functionality. </p>
+<p>Packages are directories that contain the <code>__init.py__</code> file and some number of Python files called modules.   This section will guide you through creating the first Python module to accomplish the REST Client functionality. </p>
 <blockquote>
 <p><em>Modules in Python are simply Python files with a .py extension. The name of the module will be the name of the file. A Python module can have a set of functions, classes or variables defined and implemented.</em></p>
 <p>​ <em>ref: https://www.learnpython.org/en/Modules_and_Packages</em></p>
@@ -542,8 +569,8 @@
 <p><strong>STEP 2</strong>. <em>ADD</em> the base session text</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
+<p>The <code>requests</code> package is the de facto standard Python package for making HTTP requests.  You can read more about the Python package <img alt="➡" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/27a1.svg" title=":arrow_right:" /> <a href="https://docs.python-requests.org/en/master/">requests</a></p>
 </div>
-<p>​    The <code>requests</code> package is the de facto standard Python package for making HTTP requests.  You can read more about the Python package <img alt="➡" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/27a1.svg" title=":arrow_right:" /> <a href="https://docs.python-requests.org/en/master/">requests</a></p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 
 <span class="kn">import</span> <span class="nn">requests</span>
