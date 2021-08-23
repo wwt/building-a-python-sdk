@@ -418,9 +418,39 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          The Calling Script
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         The Calling Script
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#steps" class="md-nav__link">
+    Steps
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -475,6 +505,21 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#steps" class="md-nav__link">
+    Steps
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -487,9 +532,12 @@
                 
                 
                 <h1 id="create-a-python-script">Create a Python Script</h1>
-<p>Now that you have created the minimum elements of your DNAC SDK you can use it in a python script just like any other module or package.  </p>
-<p>STEP 1. CREATE a file named <code>test_dnac_sdk.py</code></p>
-<p>STEP 2. PASTE the following code into the file</p>
+<p>Now that you have created the minimum elements of your DNAC SDK you can use it in a python script just like any other module or package.  This section will illustrate creating and executing a simple python script that utilizes the Python package just created. </p>
+<h2 id="steps">Steps</h2>
+<p><strong>STEP 1.</strong> CREATE a file named <code>test_dnac_sdk.py</code> in the root of the project</p>
+<p><code>touch test_dnac_sdk.py</code></p>
+<p><strong>STEP 2.</strong> <em>OPEN</em> the <code>test_dnac_sdk.py</code> file in your editor</p>
+<p><strong>STEP 3.</strong> PASTE the following code into the file</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
 <span class="kn">from</span> <span class="nn">dnac.client</span> <span class="kn">import</span> <span class="n">dnaCenterApi</span>
 
@@ -497,17 +545,23 @@
     <span class="s1">&#39;sandboxdnac2.cisco.com&#39;</span><span class="p">,</span>
     <span class="s1">&#39;devnetuser&#39;</span><span class="p">,</span>
     <span class="s1">&#39;Cisco123!&#39;</span><span class="p">,</span>
-    <span class="n">verify</span><span class="o">=</span><span class="kc">False</span>
+    <span class="n">verify</span><span class="o">=</span><span class="kc">True</span>
 <span class="p">)</span>
 
-<span class="n">sites</span> <span class="o">=</span> <span class="n">dnac</span><span class="o">.</span><span class="n">get_sites</span><span class="p">()</span>
+<span class="c1"># Retrieve and Print DNA Center Sites</span>
+<span class="n">site_query</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;building&quot;</span>
+<span class="p">}</span>
+<span class="n">sites</span> <span class="o">=</span> <span class="n">dnac</span><span class="o">.</span><span class="n">get_sites</span><span class="p">(</span><span class="n">params</span><span class="o">=</span><span class="n">site_query</span><span class="p">)</span>
 <span class="n">pprint</span><span class="p">(</span><span class="n">sites</span><span class="p">)</span>
 
+<span class="c1"># Retrieve and Pring DNA Center Network Devices</span>
 <span class="n">devices</span> <span class="o">=</span> <span class="n">dnac</span><span class="o">.</span><span class="n">get_network_devices</span><span class="p">()</span>
 <span class="n">pprint</span><span class="p">(</span><span class="n">devices</span><span class="p">)</span>
 </code></pre></div>
-<p>STEP 3. SAVE the file</p>
-<p>STEP 4. EXECUTE the script</p>
+<p><strong>STEP 4.</strong> SAVE the file</p>
+<p><strong>STEP 5.</strong> EXECUTE the script</p>
+<p>This step is executed in the development environment (Docker Container).  Please ensure your terminal is connected to that container. </p>
 <div class="highlight"><pre><span></span><code>python test_dnac_sdk.py
 </code></pre></div>
                 

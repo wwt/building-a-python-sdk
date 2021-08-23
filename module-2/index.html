@@ -412,11 +412,11 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#create-the-file" class="md-nav__link">
-    Create the File
+  <a href="#create-the-module-file" class="md-nav__link">
+    Create the Module File
   </a>
   
-    <nav class="md-nav" aria-label="Create the File">
+    <nav class="md-nav" aria-label="Create the Module File">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -525,11 +525,11 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#create-the-file" class="md-nav__link">
-    Create the File
+  <a href="#create-the-module-file" class="md-nav__link">
+    Create the Module File
   </a>
   
-    <nav class="md-nav" aria-label="Create the File">
+    <nav class="md-nav" aria-label="Create the Module File">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -558,15 +558,19 @@
                 
                 
                 <h1 id="create-a-python-module-session">Create a Python Module: session</h1>
-<p>Packages are directories that contain the <code>__init.py__</code> file and some number of Python files called modules.   This section will guide you through creating the first Python module to accomplish the REST Client functionality. </p>
+<p>Packages are directories that contain the <code>__init.py__</code> file and some number of Python files called modules.   This section will guide you through creating the first Python module which will handle the <code>session</code> functionality.</p>
 <blockquote>
 <p><em>Modules in Python are simply Python files with a .py extension. The name of the module will be the name of the file. A Python module can have a set of functions, classes or variables defined and implemented.</em></p>
 <p>​ <em>ref: https://www.learnpython.org/en/Modules_and_Packages</em></p>
 </blockquote>
-<h2 id="create-the-file">Create the File</h2>
+<h2 id="create-the-module-file">Create the Module File</h2>
 <p><strong>STEP 1</strong>. <em>CREATE</em> a file named <strong>session.py</strong> in the <code>dnac</code> folder</p>
-<p>This Python file (module) will sub-class the <code>requests.Session</code> class and serve as our object to handle all things related to the HTTP(S) session with DNA Center.  </p>
-<p><strong>STEP 2</strong>. <em>ADD</em> the base session text</p>
+<p>This Python file (module) will sub-class the <code>requests.Session</code> class and serve as our object to handle all things related to the HTTP(S) session with DNA Center.</p>
+<div class="admonition info">
+<p class="admonition-title">Read More About Class Inheritance in Python</p>
+<p><a href="https://realpython.com/python-super/">Real Python 'Super Change Your Classes with super()'</a></p>
+</div>
+<p><strong>STEP 2</strong>. <em>ADD</em> the base session <strong>text</strong></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The <code>requests</code> package is the de facto standard Python package for making HTTP requests.  You can read more about the Python package <img alt="➡" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/27a1.svg" title=":arrow_right:" /> <a href="https://docs.python-requests.org/en/master/">requests</a></p>
@@ -576,16 +580,18 @@
 <span class="kn">import</span> <span class="nn">requests</span>
 
 
-<span class="k">class</span> <span class="nc">dnacApiSession</span><span class="p">(</span><span class="n">requests</span><span class="o">.</span><span class="n">Session</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Session Wrapper for DNAC</span>
+<span class="k">class</span> <span class="nc">dnaCenterSession</span><span class="p">(</span><span class="n">requests</span><span class="o">.</span><span class="n">Session</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;DNA Center Session Object</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        requests (Session): Sub-classes requests.Session</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="nb">dict</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Initialize Object</span>
+<span class="sd">        Initialize dnaCenterSession</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="nb">super</span><span class="p">(</span><span class="n">dnacApiSession</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">dnaCenterSession</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">headers</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
             <span class="p">{</span>
@@ -593,21 +599,29 @@
             <span class="p">}</span>
         <span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">set_basic_auth</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Set the auth attribute of the session object</span>
-<span class="sd">        params:</span>
+    <span class="k">def</span> <span class="nf">set_basic_auth</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">username</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">password</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Set the credentials for Basic Auth on the session object</span>
 
-<span class="sd">          username (str) - login username</span>
-<span class="sd">          password (str) - login password</span>
+<span class="sd">        Args:</span>
+<span class="sd">            username (str): username for basic auth</span>
+<span class="sd">            password (str): password for basic auth</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">auth</span> <span class="o">=</span> <span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">set_verify</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">verify</span><span class="p">:</span> <span class="nb">bool</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Sets the verify boolean of a request.Session object</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            verify (bool): Boolean for validating certificates</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">verify</span> <span class="o">=</span> <span class="n">verify</span>
 </code></pre></div>
+<p><strong>STEP 3 .</strong> <em>SAVE</em> the <strong>file</strong></p>
 <h3 id="what-does-this-do">What does this do?</h3>
-<p>This Python module illustrates the use of sub-classing, a key concept in object-oriented programming, to utilize all of the existing functionality in the <code>requests</code> package while providing the ability to customize settings for our specific use case.  </p>
+<p>This Python module illustrates the use of sub-classing, a key concept in object-oriented programming, to utilize all of the existing functionality in the <code>requests</code> package while providing the ability to customize settings for our specific use case.</p>
 <p>The <code>__init__</code> method calls the <code>__init__</code> method of the parent class (<code>requests.sessions.Session</code>) and sets a header value for all calls.</p>
-<p>The <code>set_basic_auth</code> method sets the attribute named <code>auth</code> of the <code>Session</code> object. </p>
-<p>This simple example illustrates the power and simplicity of object oriented programming. </p>
+<p>The <code>set_basic_auth</code> method sets the attribute named <code>auth</code> of the <code>Session</code> object.</p>
+<p>This simple example illustrates the power and simplicity of object oriented programming.</p>
                 
               
               
