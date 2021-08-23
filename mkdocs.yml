@@ -1,6 +1,7 @@
 ---
 site_name: "Build a Python SDK"
 nav:
+  - Home: index.md
   - Setup: module-0.md
   - Python Package: module-1.md
   - The Session Module: module-2.md
@@ -10,8 +11,8 @@ nav:
   - Wrap up: conclusion.md
 
 # Repository
-repo_name: "wwt/devasc-building-a-python-sdk"
-repo_url: "https://github.com/wwt/devasc-building-a-python-sdk"
+repo_name: "wwt/building-a-python-sdk"
+repo_url: "https://github.com/wwt/building-a-python-sdk"
 edit_uri: ""
 
 # Configuration
@@ -54,3 +55,4 @@ markdown_extensions:
   - pymdownx.highlight
   - pymdownx.superfences
   - pymdownx.keys
+  - pymdownx.tabbed

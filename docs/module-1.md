@@ -1,5 +1,7 @@
 # Create a Python Package
 
+<img src="https://miro.medium.com/max/580/0*Kt5_0uGLlCFAgbt6.png" alt="Python Packages (and Modules!) Explained | by butteredwaffles | Medium" style="zoom:50%;" />
+
 In this section you will create a Python package that will become your DNA Center SDK. 
 
 *Packages are namespaces which contain multiple packages and modules themselves. They are simply directories, but with a twist.*
@@ -9,6 +11,11 @@ In this section you will create a Python package that will become your DNA Cente
 *ref: https://www.learnpython.org/en/Modules_and_Packages*
 
 ## Steps
+
+The first task is to create the **package** that will contain our Python modules.
+
+!!! note
+    `__init__.py` is technically not required as of Python 3.3
 
 **STEP 1.** *CREATE* a folder named **dnac**
 

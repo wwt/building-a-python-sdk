@@ -8,93 +8,98 @@ The job of the **client** module is to *wrap* the REST endpoints available on th
 
 ## Create the Class
 
-1. *CREATE* a file named **client.py** in the `dnac/` directory (the package)
+**STEP 1.** *CREATE* a file named **client.py** in the `dnac/` directory (the package)
 
-2. *OPEN* the `dnac/client.py` file in your editor
+Python modules are just files with the `.py` extension. 
 
-3. `import` the REST Client you created using relative imports 
+**STEP 2.** *OPEN* the `dnac/client.py` file in your editor
 
-   ```python
-   from .session import dnacApiSession
-   ```
+**STEP 3.** `import` the REST Client you created using relative imports 
 
-4. *CREATE* a **class** named **dnaCenterApi**
+```python
+from .session import dnacApiSession
+```
 
-   ```python
-   
-   class dnaCenterApi:
-   
-   ```
+!!! tip "Read More on Relative Imports"   
+    Here is a reference for [Relative Imports](https://realpython.com/absolute-vs-relative-python-imports/) in Python
 
-5. *DEFINE* a method named `__init__`
+**STEP 4.** *CREATE* a **class** named **dnaCenterApi**
 
-   ```python
-       def __init__(self, host, username, password, verify=False):
-           """
-           Initializer
-           """
-           self.session = dnacApiSession()
-           self.host = host
-           self.base_url = f"https://{host}"
-   
-           if username and password:
-               self.session.init_basic_auth(username, password)
-   
-           self.get_token()
-   
-   ```
+```python
 
-6. *DEFINE* a method named `get_token`
+class dnaCenterApi:
 
-   ```python
-       def get_token(self):
-           """
-           Authenticate to DNA Center and generate a token
-           """
-   
-           _response = self.session.post(
-               self.get_url('/dna/system/api/v1/auth/token')
-               )
-   
-           if _response.ok:
-   
-               print(f"Successfully established a session with: {self.host}")
-   
-               self.session.headers.update(
-                   {
-                       'x-auth-token': _response.json().get('Token')
-                   }
-               )
-   
-   ```
+```
 
-7. *DEFINE* a method named `get_url`
+**STEP 5.** *DEFINE* a method named `__init__`
 
-   ```python
-       def get_url(self, resource):
-           """
-           Build the url
-           """
-           return self.base_url + resource
-   
-   ```
+```python
+    def __init__(self, host, username, password, verify=False):
+        """
+        Initializer
+        """
+        self.session = dnacApiSession()
+        self.host = host
+        self.base_url = f"https://{host}"
 
-8. *DEFINE* a method named `_make_request`
+        if username and password:
+            self.session.init_basic_auth(username, password)
 
-   ```python
-       def _make_request(self, method, url):
-           """
-           make rest request
-           """
-           results = self.session.request(method, url, data=None)
-   
-           if results.ok:
-               return results.json()
-   
-           results.raise_for_status()
-   ```
+        self.get_token()
 
-   
+```
+
+**STEP 6.** *DEFINE* a method named `get_token`
+
+```python
+    def get_token(self):
+        """
+        Authenticate to DNA Center and generate a token
+        """
+
+        _response = self.session.post(
+            self.build_url('/dna/system/api/v1/auth/token')
+            )
+
+        if _response.ok:
+
+            print(f"Successfully established a session with: {self.host}")
+
+            self.session.headers.update(
+                {
+                    'x-auth-token': _response.json().get('Token')
+                }
+            )
+
+```
+
+**STEP 7.** *DEFINE* a method named `build_url`
+
+```python
+    def build_url(self, resource):
+        """
+        Build the url
+        """
+        return self.base_url + resource
+
+```
+
+**STEP 8.** *DEFINE* a method named `_make_request`
+
+```python
+    def _make_request(self, method, url):
+        """
+        make rest request
+        """
+        results = self.session.request(method, url, data=None)
+
+        if results.ok:
+            return results.json()
+
+        results.raise_for_status()
+```
+
+
 
 !!! success "You did it!"
     Launch iPython and see if your code works.
@@ -103,13 +108,15 @@ The job of the **client** module is to *wrap* the REST endpoints available on th
 
 ## Add API Wrapper Method to Get Sites
 
+Now that the basic mechanics of your API Client work and you can establish a session with a DNA Center it's time to **add** some functions to target specific REST Endpoints.  The first endpoint that will be added is the **site** endpoint.  
+
 ```python
     def get_sites(self):
         """
         Retreives site(s) from DNA Center
         """
         resource = "/dna/intent/api/v1/site"
-        return self._make_request('GET', self.get_url(resource))
+        return self._make_request('GET', self.build_url(resource))
 
 ```
 
@@ -123,7 +130,7 @@ The job of the **client** module is to *wrap* the REST endpoints available on th
         Retrieves network devices from DNA Center
         """
         resource = "/dna/intent/api/v1/network-device"
-        return self._make_request('GET', self.get_url(resource))
+        return self._make_request('GET', self.build_url(resource))
 ```
 
 ## Full File
@@ -158,7 +165,7 @@ class dnaCenterApi:
         """
 
         _response = self.session.post(
-            self.get_url('/dna/system/api/v1/auth/token')
+            self.build_url('/dna/system/api/v1/auth/token')
             )
 
         if _response.ok:
@@ -171,7 +178,7 @@ class dnaCenterApi:
                 }
             )
 
-    def get_url(self, resource):
+    def build_url(self, resource):
         """
         Build the url
         """
@@ -195,14 +202,14 @@ class dnaCenterApi:
         Retreives site(s) from DNA Center
         """
         resource = "/dna/intent/api/v1/site"
-        return self._make_request('GET', self.get_url(resource))
+        return self._make_request('GET', self.build_url(resource))
 
     def get_network_devices(self):
         """
         Retrieves network devices from DNA Center
         """
         resource = "/dna/intent/api/v1/network-device"
-        return self._make_request('GET', self.get_url(resource))
+        return self._make_request('GET', self.build_url(resource))
 
 ```
 

@@ -1,6 +1,6 @@
 # Create a Python Module: session
 
-Packages are directories that contain the `__init.py_` file and some number of Python files called modules.   This section will guide you through creating the first Python module to accomplish the REST Client functionality. 
+Packages are directories that contain the `__init.py__` file and some number of Python files called modules.   This section will guide you through creating the first Python module to accomplish the REST Client functionality. 
 
 > *Modules in Python are simply Python files with a .py extension. The name of the module will be the name of the file. A Python module can have a set of functions, classes or variables defined and implemented.*
 >
@@ -15,8 +15,7 @@ This Python file (module) will sub-class the `requests.Session` class and serve 
 **STEP 2**. *ADD* the base session text
 
 !!! note
-
-​    The `requests` package is the de facto standard Python package for making HTTP requests.  You can read more about the Python package :arrow_right: [requests](https://docs.python-requests.org/en/master/)
+    The `requests` package is the de facto standard Python package for making HTTP requests.  You can read more about the Python package :arrow_right: [requests](https://docs.python-requests.org/en/master/)
 
 ```python
 #!/usr/bin/env python
