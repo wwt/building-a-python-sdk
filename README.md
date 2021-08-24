@@ -8,7 +8,7 @@ The goal of this repository is to provide an overview of how to create a Python 
 
 ## Documentation
 
-The guide for this repository is located [here](https://wwt.github.io/build-a-python-sdk).
+The guide for this repository is located [here](https://wwt.github.io/building-a-python-sdk).
 
 ## Author Information
 jeff andiorio
