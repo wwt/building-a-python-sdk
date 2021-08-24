@@ -1,5 +1,7 @@
 # Create a Python Module: client
 
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Text-x-python.svg/1024px-Text-x-python.svg.png" alt="File:Text-x-python.svg - Wikimedia Commons" style="zoom: 25%;" />
+
 The job of the **client** module is to *wrap* the REST endpoints available on the platform.  This section will build the API wrapper module using a combination of resources as a reference.
 
 [DNA Center API Documentation](https://developer.cisco.com/docs/dna-center/#!cisco-dna-1-3-3-x-api-api-authentication-authentication-api)
