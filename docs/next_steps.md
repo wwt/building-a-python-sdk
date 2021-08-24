@@ -9,3 +9,5 @@ Now that you have seen a walk through of creating a basic Python SDK using your 
 
 The goal is to practice writing code in Python, reading and translating API documentation, and building the muscle memory that will make you success in your future development projects.
 
+Other things you could do is add to this project elements such as logging, exceptions, etc.  
+
