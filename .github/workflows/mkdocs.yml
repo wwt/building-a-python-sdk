@@ -4,6 +4,8 @@ name: Build Documentation w/ MkDocs
 on:
   push:
     branches: [ main ]
+    paths:
+      - 'docs/**'
   workflow_dispatch:
 
 jobs:
