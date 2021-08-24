@@ -1,6 +1,6 @@
 # Create a Python Module: client
 
-<img src="_images/python_module_icon.png" alt="Python Module" style="zoom:25%;" />
+<img src="../_images/python_module_icon.png" alt="Python Module" style="zoom:25%;" />
 
 The job of the **client** module is to *wrap* the REST endpoints available on the platform.  This section will build the API wrapper module using a combination of resources as a reference.
 
