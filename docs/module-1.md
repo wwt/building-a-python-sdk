@@ -17,7 +17,7 @@ The first task is to create the **package** that will contain our Python modules
 !!! note
     `__init__.py` is technically not required as of Python 3.3
 
-**STEP 1.** *CREATE* a folder named **dnac**
+**STEP 1.** *CREATE* a folder named **dnac** in the root of the project (cloned) directory
 
 `mkdir dnac`
 
