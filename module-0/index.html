@@ -10,7 +10,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.4">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.5">
     
     
       
@@ -18,7 +18,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.f7f47774.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.be71726b.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
@@ -574,14 +574,14 @@
                 
                 
                 <h1 id="getting-setup">Getting Setup</h1>
-<p>As with any development project there are some initial setup steps that are required to get things rolling.  In the case of this walk-through, the repository already exists as a starting point.  The section walks you through the process of cloning that repository down to your local machine, activating the development environment, and opening the project in your Integrated Development Environment. </p>
+<p>As with any development project there are some initial setup steps that are required to get things rolling.  In the case of this walk-through, the repository already exists as a starting point.  This section walks you through the process of cloning that repository down to your local machine, activating the development environment, and opening the project in your Integrated Development Environment.    </p>
 <h2 id="clone-the-repo">Clone the Repo</h2>
 <p><img src="https://git-scm.com/images/logos/downloads/Git-Logo-1788C.png" alt="Git - Logo Downloads" style="zoom:50%;" /></p>
-<p>One of the very first skills you learn when starting the journey to becoming an automation engineer is version control. This is a key skill in the development/automation lifecycle.  There are many, many command line options and details to understand about <code>git</code> but in regular and daily workflow you will find yourself using a subset of them. </p>
+<p>One of the very first skills you learn when starting the journey to becoming an automation engineer is version control. This is a key skill in the development/automation lifecycle.  There are many, many command line options and details to understand about <code>git</code> but in typical daily workflows you will find yourself using a subset of them. Below are the six most common <code>git</code> commands used in a typical development workflow.</p>
 <p><img alt="git_basics_6_commands.png" src="../_images/git_basics_6_commands.png" /></p>
-<p>Many IDE's provide version control integration that allows you to utilize the UI in order to perform many of these functions.  You can chose what method works best for your personal workflow.  The steps below show how to clone a repo from a terminal window.</p>
+<p>Many IDE's provide version control integration that allows you to utilize the UI in order to perform these functions.  You can chose what method works best for your personal workflow.  The steps below show how to clone a repo from a terminal window.</p>
 <h2 id="steps">STEPS</h2>
-<p><strong>STEP 1.</strong> <em>NAVIGATE</em> to the repo on GitHub <img alt="➡" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/27a1.svg" title=":arrow_right:" /> <a href="https://github.com/wwt/devasc-building-a-python-sdk">devasc-building-a-python-sdk</a></p>
+<p><strong>STEP 1.</strong> <em>NAVIGATE</em> to the repo on GitHub <img alt="➡" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/27a1.svg" title=":arrow_right:" /> <a href="https://github.com/wwt/devasc-building-a-python-sdk">devasc-building-a-python-sdk</a> (Login to GitHub if required)</p>
 <p><strong>STEP 2.</strong> <em>CLICK</em> the <strong>Code</strong> button </p>
 <p><strong>STEP 3.</strong> <em>SELECT</em> the transport (HTTPS or SSH)</p>
 <p><strong>STEP 4.</strong> <em>CLICK</em> the <strong>Copy</strong> icon</p>
@@ -598,11 +598,11 @@
 <p>The command above will clone down the repository creating a subfolder with the name of the repo in the folder where you ran the command.</p>
 </div>
 <h2 id="development-environment">Development Environment</h2>
-<p>All code in this walk-through was developed in a Docker container that was created from the <code>Dockerfile</code> included in the repository.  Including the <code>Dockerfile</code> in the repository means we can avoid the "...it works on my machine problem..." By using containers and also makes the container definition travel adjacent to the code. </p>
+<p>All code in this walk-through was developed in a Docker container that was created from the <code>Dockerfile</code> included in the repository.  Including the <code>Dockerfile</code> in the repository means we can avoid the "...it works on my machine problem..." by using containers and also makes the container definition travel adjacent to the code. </p>
 <p>Below will cover using the Docker container for your execution environment.  Just click the tab that meets your needs:</p>
 <p><strong>STEP 1.</strong><em>OPEN</em> the new Folder in your Integrated Development Environment</p>
 <div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Visual Studio Code</label><div class="tabbed-content">
-<p>If you are running <strong>Visual Studio Code</strong> as your IDE, and have the <strong>Remove Development Extension</strong> pack installed (<code>ms-vscode-remote.vscode-remote-extensionpack</code>) you can simply open the root directory of this project, then select <strong>Open in Container</strong> when prompted (dialog box in the lower right corner).</p>
+<p>If you are running <strong>Visual Studio Code</strong> as your IDE, and have the <strong>Remove Development Extension</strong> pack installed (<code>ms-vscode-remote.vscode-remote-extensionpack</code>) you can simply open the root directory of this project, then select <strong>Reopen in Container</strong> when prompted (dialog box in the lower right corner).</p>
 <p>The repository contains a portable development environment in the form of a <code>Dockerfile</code>, <code>requirements.txt</code>, and <code>.devcontainer.json</code> files.  </p>
 <p>This special integration with Visual Studio Code simplifies developing in a containerized development environment</p>
 </div>
@@ -691,10 +691,10 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.sections", "navigation.tabs"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.709b4209.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.sections", "navigation.tabs"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.febc23d1.min.js"></script>
+      <script src="../assets/javascripts/bundle.56a63758.min.js"></script>
       
     
   </body>

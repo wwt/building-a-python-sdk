@@ -10,7 +10,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.4">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.5">
     
     
       
@@ -18,7 +18,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.f7f47774.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.be71726b.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
@@ -589,7 +589,7 @@
                 
                 <h1 id="create-a-python-module-client">Create a Python Module: client</h1>
 <p><img src="../_images/python_module_icon.png" style="zoom:25%;" /></p>
-<p>The job of the <strong>client</strong> module is to <em>wrap</em> the REST endpoints available on the platform.  This section will build the API wrapper module using a combination of resources as a reference.</p>
+<p>The job of the <strong>client</strong> module is to <em>wrap</em> the REST endpoints available on the platform and serve as the <em>interface</em> to the consumer.  This section will build the API wrapper module using a combination of resources as a reference.</p>
 <p><a href="https://developer.cisco.com/docs/dna-center/#!cisco-dna-1-3-3-x-api-api-authentication-authentication-api">DNA Center API Documentation</a></p>
 <p><a href="https://docs.python.org/3/tutorial/classes.html">Python Classes</a></p>
 <p>The client is the Python object that is the external interface for the SDK.  A consumer of this SDK would instantiate an instance of the client where all of the necessary methods would exist for interacting with the target system, DNA Center.</p>
@@ -656,7 +656,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="n">_response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">get_url</span><span class="p">(</span><span class="s1">&#39;/dna/system/api/v1/auth/token&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">build_url</span><span class="p">(</span><span class="s1">&#39;/dna/system/api/v1/auth/token&#39;</span><span class="p">)</span>
             <span class="p">)</span>
 
         <span class="k">if</span> <span class="n">_response</span><span class="o">.</span><span class="n">ok</span><span class="p">:</span>
@@ -711,6 +711,16 @@
 <p class="admonition-title">You did it!</p>
 <p>Launch iPython and see if your code works.</p>
 </div>
+<p><strong>STEP 10.</strong> <em>OPEN</em> a Python Interpreter </p>
+<p><strong>STEP 11.</strong> <em>PASTE</em> the text below</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">dnac.client</span> <span class="kn">import</span> <span class="n">dnaCenterApi</span>
+
+<span class="n">dnac</span> <span class="o">=</span> <span class="n">dnaCenterApi</span><span class="p">(</span>
+    <span class="s1">&#39;sandboxdnac2.cisco.com&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;devnetuser&#39;</span><span class="p">,</span> 
+    <span class="s1">&#39;Cisco123!&#39;</span>
+    <span class="p">)</span>
+</code></pre></div>
 <p><img alt="initial_import_session_test.png" src="../_images/initial_import_session_test.png" /></p>
 <h2 id="add-api-wrapper-method-to-get-sites">Add API Wrapper Method to Get Sites</h2>
 <p>Now that the basic mechanics of your API Client work and you can establish a session with a DNA Center it's time to <strong>add</strong> some functions to target specific REST Endpoints.  The first endpoint that will be added is the <strong>site</strong> endpoint.</p>
@@ -748,6 +758,10 @@
                                   <span class="n">params</span><span class="o">=</span><span class="n">params</span>
                                   <span class="p">)</span>
 </code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Save Your Work!</p>
+<p>Don't forget to <img alt="💾" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/1f4be.svg" title=":floppy_disk:" /> your work!</p>
+</div>
 <h2 id="full-file">Full File</h2>
 <p>This is what the full file will look like for comparison.  You can also copy this and paste it over the contents you have created to be sure.  </p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
@@ -951,10 +965,10 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.sections", "navigation.tabs"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.709b4209.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.sections", "navigation.tabs"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.febc23d1.min.js"></script>
+      <script src="../assets/javascripts/bundle.56a63758.min.js"></script>
       
     
   </body>
