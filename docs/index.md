@@ -29,6 +29,8 @@ Through this guided walk-through you will build a "relatively" simple Python Sof
 
 <img src="../_images/sdk_architecture.png" style="zoom:50%;" />
 
+There will be a Python **package** as depicted with a folder and two Python **modules** contained within.
+
 The two Python modules together will enable the communication with DNA Center.  `session.py` will be responsible for maintaining the attributes related to establishing an HTTP session with the target host and `client.py` will act as the interface for the consumer of your SDK.
 
 ![python_sdk_flow.png](_images/python_sdk_flow.png)
