@@ -2,7 +2,7 @@
 
 <img src="../_images/python_module_icon.png" style="zoom:25%;" />
 
-The job of the **client** module is to *wrap* the REST endpoints available on the platform.  This section will build the API wrapper module using a combination of resources as a reference.
+The job of the **client** module is to *wrap* the REST endpoints available on the platform and serve as the *interface* to the consumer.  This section will build the API wrapper module using a combination of resources as a reference.
 
 [DNA Center API Documentation](https://developer.cisco.com/docs/dna-center/#!cisco-dna-1-3-3-x-api-api-authentication-authentication-api)
 
@@ -98,7 +98,7 @@ This is only method that will use **Basic Auth**.  All other methods will utiliz
         """
 
         _response = self.session.post(
-            self.get_url('/dna/system/api/v1/auth/token')
+            self.build_url('/dna/system/api/v1/auth/token')
             )
 
         if _response.ok:
@@ -166,6 +166,20 @@ The `_make_request_` method is responsible for executing the `requests.Session.r
 !!! success "You did it!"
     Launch iPython and see if your code works.
 
+**STEP 10.** *OPEN* a Python Interpreter 
+
+**STEP 11.** *PASTE* the text below
+
+```python
+from dnac.client import dnaCenterApi
+
+dnac = dnaCenterApi(
+    'sandboxdnac2.cisco.com', 
+    'devnetuser', 
+    'Cisco123!'
+    )
+```
+
 ![initial_import_session_test.png](_images/initial_import_session_test.png)
 
 ## Add API Wrapper Method to Get Sites
@@ -214,6 +228,9 @@ The `get_sites` method of our `dnaCenterApi` **client** targets the /dna/intent/
                                   )
 
 ```
+
+!!! Tip "Save Your Work!"
+    Don't forget to :floppy_disk: your work!
 
 ## Full File
 

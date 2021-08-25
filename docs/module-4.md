@@ -4,13 +4,13 @@ Now that you have created the minimum elements of your DNAC SDK you can use it i
 
 ## Steps
 
-**STEP 1.** CREATE a file named `test_dnac_sdk.py` in the root of the project
+**STEP 1.** *CREATE* a file named `test_dnac_sdk.py` in the root of the project
 
 `touch test_dnac_sdk.py`
 
 **STEP 2.** *OPEN* the `test_dnac_sdk.py` file in your editor
 
-**STEP 3.** PASTE the following code into the file
+**STEP 3.** *PASTE* the following code into the file
 
 ```python
 from pprint import pprint
