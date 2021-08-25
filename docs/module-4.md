@@ -38,7 +38,7 @@ pprint(devices)
 
 **STEP 4.** SAVE the file
 
-**STEP 5.** EXECUTE the script
+**STEP 5.** *EXECUTE* the script
 
 This step is executed in the development environment (Docker Container).  Please ensure your terminal is connected to that container. 
 
