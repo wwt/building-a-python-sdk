@@ -27,7 +27,7 @@ This walk-through assumes knowledge of:
 
 Through this guided walk-through you will build a "relatively" simple Python Software Development Kit (SDK) to interface with Cisco's DNA Center.  Fundamentally, this SDK will have the following high-level  architecture:
 
-<img src="_images/sdk_architecture.png" style="zoom:50%;" />
+![sdk_arch](_images/sdk_architecture.png)
 
 There will be a Python **package** as depicted with a folder and two Python **modules** contained within.
 
