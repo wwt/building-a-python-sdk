@@ -17,7 +17,7 @@ This Python file (module) will sub-class the `requests.Session` class and serve 
 !!! info "Read More About Class Inheritance in Python"
     [Real Python 'Super Change Your Classes with super()'](https://realpython.com/python-super/)
 
-**STEP 2**. *ADD* the base session **text**
+**STEP 2**. *ADD* the base session **text** (copy and paste the code below)
 
 !!! note
     The `requests` package is the de facto standard Python package for making HTTP requests.  You can read more about the Python package :arrow_right: [requests](https://docs.python-requests.org/en/master/)
@@ -72,9 +72,13 @@ class dnaCenterSession(requests.Session):
 
 This Python module illustrates the use of sub-classing, a key concept in object-oriented programming, to utilize all of the existing functionality in the `requests` package while providing the ability to customize settings for our specific use case.
 
-The `__init__` method calls the `__init__` method of the parent class (`requests.sessions.Session`) and sets a header value for all calls.
+The `__init__` method calls the `__init__` method of the parent class (`requests.sessions.Session`) using the `super()`  function and sets a header value for all calls.
 
 The `set_basic_auth` method sets the attribute named `auth` of the `Session` object.
 
+The `set_verify` method sets the boolean value for checking the validity of certificates or not during session establishment.
+
 This simple example illustrates the power and simplicity of object oriented programming.
+
+See [`requests` documentation](https://docs.python-requests.org/en/master/) for more info on the library.
 
