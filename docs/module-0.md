@@ -14,7 +14,7 @@ Many IDE's provide version control integration that allows you to utilize the UI
 
 ## STEPS
 
-**STEP 1.** *NAVIGATE* to the repo on GitHub :arrow_right: [devasc-building-a-python-sdk](https://github.com/wwt/devasc-building-a-python-sdk) (Login to GitHub if required)
+**STEP 1.** *NAVIGATE* to the repo on GitHub :arrow_right: [building-a-python-sdk](https://github.com/wwt/building-a-python-sdk) (Login to GitHub if required)
 
 **STEP 2.** *CLICK* the **Code** button 
 
@@ -29,10 +29,10 @@ Many IDE's provide version control integration that allows you to utilize the UI
 **STEP 6.** *PASTE* `git clone` plus that string into your **Terminal**
 
 !!! example
-    **SSH** `git clone git@github.com:wwt/devasc-building-a-python-sdk.git`
+    **SSH** `git clone git@github.com:wwt/building-a-python-sdk.git`
     
 
-    **HTTPS** `git clone https://github.com/wwt/devasc-building-a-python-sdk.git`
+    **HTTPS** `git clone https://github.com/wwt/building-a-python-sdk.git`
 
 !!! important
     The command above will clone down the repository creating a subfolder with the name of the repo in the folder where you ran the command.
@@ -57,11 +57,11 @@ Below will cover using the Docker container for your execution environment.  Jus
 
     If you are not using Visual Studio Code you can still utilize the :whale: Dockerfile packaged with the repository but some manual **build** and **launch** steps will be necessary.
     
-    1. Ensure you are in the root of the `ansible-validate-example` project
+    1. Ensure you are in the root of the `building-a-python-sdk` project
     2. *BUILD* the **Docker Image**
-      `docker image build -t ansible-validate-lab .`
+      `docker image build -t building-a-python-sdk .`
     3. *RUN* the **Docker Container**
-      `docker container run -itv $PWD:/ansible-validate-example ansible-validate-lab`
+      `docker container run -itv $PWD:/building-a-python-sdk building-a-python-sdk`
 
 This repo contains a starting framework from which you will expand to build a Python SDK. 
 
