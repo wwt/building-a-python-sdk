@@ -656,7 +656,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="n">_response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">build_url</span><span class="p">(</span><span class="s1">&#39;/dna/system/api/v1/auth/token&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_build_url</span><span class="p">(</span><span class="s1">&#39;/dna/system/api/v1/auth/token&#39;</span><span class="p">)</span>
             <span class="p">)</span>
 
         <span class="k">if</span> <span class="n">_response</span><span class="o">.</span><span class="n">ok</span><span class="p">:</span>
@@ -669,9 +669,9 @@
                 <span class="p">}</span>
             <span class="p">)</span>
 </code></pre></div>
-<p><strong>STEP 7.</strong> <em>DEFINE</em> a method named <code>build_url</code></p>
+<p><strong>STEP 7.</strong> <em>DEFINE</em> a method named <code>_build_url</code></p>
 <p>This is a simple example of abstracting code that would need to be repeated in every API endpoint wrapper into its own method.</p>
-<div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">build_url</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">resource</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">_build_url</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">resource</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;Generate the full URL based on the self.base_url plus the provided</span>
 <span class="sd">        resource (API endpoint)</span>
 
@@ -738,7 +738,7 @@
         <span class="n">resource</span> <span class="o">=</span> <span class="s2">&quot;/dna/intent/api/v1/site&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_request</span><span class="p">(</span>
                                   <span class="s1">&#39;GET&#39;</span><span class="p">,</span>
-                                  <span class="bp">self</span><span class="o">.</span><span class="n">build_url</span><span class="p">(</span><span class="n">resource</span><span class="p">),</span>
+                                  <span class="bp">self</span><span class="o">.</span><span class="n">_build_url</span><span class="p">(</span><span class="n">resource</span><span class="p">),</span>
                                   <span class="n">params</span><span class="o">=</span><span class="n">params</span>
                                   <span class="p">)</span>
 </code></pre></div>
@@ -754,7 +754,7 @@
         <span class="n">resource</span> <span class="o">=</span> <span class="s2">&quot;/dna/intent/api/v1/network-device&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_request</span><span class="p">(</span>
                                   <span class="s1">&#39;GET&#39;</span><span class="p">,</span>
-                                  <span class="bp">self</span><span class="o">.</span><span class="n">build_url</span><span class="p">(</span><span class="n">resource</span><span class="p">),</span>
+                                  <span class="bp">self</span><span class="o">.</span><span class="n">_build_url</span><span class="p">(</span><span class="n">resource</span><span class="p">),</span>
                                   <span class="n">params</span><span class="o">=</span><span class="n">params</span>
                                   <span class="p">)</span>
 </code></pre></div>
@@ -812,7 +812,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="n">_response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">build_url</span><span class="p">(</span><span class="s1">&#39;/dna/system/api/v1/auth/token&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_build_url</span><span class="p">(</span><span class="s1">&#39;/dna/system/api/v1/auth/token&#39;</span><span class="p">)</span>
             <span class="p">)</span>
 
         <span class="k">if</span> <span class="n">_response</span><span class="o">.</span><span class="n">ok</span><span class="p">:</span>
@@ -825,7 +825,7 @@
                 <span class="p">}</span>
             <span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">build_url</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">resource</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">_build_url</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">resource</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;Generate the full URL based on the self.base_url plus the provided</span>
 <span class="sd">        resource (API endpoint)</span>
 
@@ -873,7 +873,7 @@
         <span class="n">resource</span> <span class="o">=</span> <span class="s2">&quot;/dna/intent/api/v1/site&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_request</span><span class="p">(</span>
                                   <span class="s1">&#39;GET&#39;</span><span class="p">,</span>
-                                  <span class="bp">self</span><span class="o">.</span><span class="n">build_url</span><span class="p">(</span><span class="n">resource</span><span class="p">),</span>
+                                  <span class="bp">self</span><span class="o">.</span><span class="n">_build_url</span><span class="p">(</span><span class="n">resource</span><span class="p">),</span>
                                   <span class="n">params</span><span class="o">=</span><span class="n">params</span>
                                   <span class="p">)</span>
 
@@ -888,7 +888,7 @@
         <span class="n">resource</span> <span class="o">=</span> <span class="s2">&quot;/dna/intent/api/v1/network-device&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_request</span><span class="p">(</span>
                                   <span class="s1">&#39;GET&#39;</span><span class="p">,</span>
-                                  <span class="bp">self</span><span class="o">.</span><span class="n">build_url</span><span class="p">(</span><span class="n">resource</span><span class="p">),</span>
+                                  <span class="bp">self</span><span class="o">.</span><span class="n">_build_url</span><span class="p">(</span><span class="n">resource</span><span class="p">),</span>
                                   <span class="n">params</span><span class="o">=</span><span class="n">params</span>
                                   <span class="p">)</span>
 </code></pre></div>
