@@ -98,7 +98,7 @@ This is only method that will use **Basic Auth**.  All other methods will utiliz
         """
 
         _response = self.session.post(
-            self.build_url('/dna/system/api/v1/auth/token')
+            self._build_url('/dna/system/api/v1/auth/token')
             )
 
         if _response.ok:
@@ -113,12 +113,12 @@ This is only method that will use **Basic Auth**.  All other methods will utiliz
 
 ```
 
-**STEP 7.** *DEFINE* a method named `build_url`
+**STEP 7.** *DEFINE* a method named `_build_url`
 
 This is a simple example of abstracting code that would need to be repeated in every API endpoint wrapper into its own method.
 
 ```python
-    def build_url(self, resource: str) -> str:
+    def _build_url(self, resource: str) -> str:
         """Generate the full URL based on the self.base_url plus the provided
         resource (API endpoint)
 
@@ -202,7 +202,7 @@ The `get_sites` method of our `dnaCenterApi` **client** targets the /dna/intent/
         resource = "/dna/intent/api/v1/site"
         return self._make_request(
                                   'GET',
-                                  self.build_url(resource),
+                                  self._build_url(resource),
                                   params=params
                                   )
 ```
@@ -223,7 +223,7 @@ The `get_sites` method of our `dnaCenterApi` **client** targets the /dna/intent/
         resource = "/dna/intent/api/v1/network-device"
         return self._make_request(
                                   'GET',
-                                  self.build_url(resource),
+                                  self._build_url(resource),
                                   params=params
                                   )
 
@@ -285,7 +285,7 @@ class dnaCenterApi:
         """
 
         _response = self.session.post(
-            self.build_url('/dna/system/api/v1/auth/token')
+            self._build_url('/dna/system/api/v1/auth/token')
             )
 
         if _response.ok:
@@ -298,7 +298,7 @@ class dnaCenterApi:
                 }
             )
 
-    def build_url(self, resource: str) -> str:
+    def _build_url(self, resource: str) -> str:
         """Generate the full URL based on the self.base_url plus the provided
         resource (API endpoint)
 
@@ -346,7 +346,7 @@ class dnaCenterApi:
         resource = "/dna/intent/api/v1/site"
         return self._make_request(
                                   'GET',
-                                  self.build_url(resource),
+                                  self._build_url(resource),
                                   params=params
                                   )
 
@@ -361,7 +361,7 @@ class dnaCenterApi:
         resource = "/dna/intent/api/v1/network-device"
         return self._make_request(
                                   'GET',
-                                  self.build_url(resource),
+                                  self._build_url(resource),
                                   params=params
                                   )
 
