@@ -4,9 +4,9 @@
 
 The job of the **client** module is to *wrap* the REST endpoints available on the platform and serve as the *interface* to the consumer.  This section will build the API wrapper module using a combination of resources as a reference.
 
-[DNA Center API Documentation](https://developer.cisco.com/docs/dna-center/#!cisco-dna-1-3-3-x-api-api-authentication-authentication-api)
+[DNA Center API Documentation](https://developer.cisco.com/docs/dna-center/#!cisco-dna-1-3-3-x-api-api-authentication-authentication-api){target=_blank}
 
-[Python Classes](https://docs.python.org/3/tutorial/classes.html)
+[Python Classes](https://docs.python.org/3/tutorial/classes.html){target=_blank}
 
 The client is the Python object that is the external interface for the SDK.  A consumer of this SDK would instantiate an instance of the client where all of the necessary methods would exist for interacting with the target system, DNA Center.
 
@@ -31,7 +31,7 @@ from .session import dnaCenterSession
 ```
 
 !!! tip "Read More on Relative Imports"
-    Here is a reference for [Relative Imports](https://realpython.com/absolute-vs-relative-python-imports/) in Python
+    Here is a reference for [Relative Imports](https://realpython.com/absolute-vs-relative-python-imports/){target=_blank} in Python
 
 **STEP 4.** *CREATE* a **class** named **dnaCenterApi**
 
@@ -186,7 +186,7 @@ dnac = dnaCenterApi(
 
 Now that the basic mechanics of your API Client work and you can establish a session with a DNA Center it's time to **add** some functions to target specific REST Endpoints.  The first endpoint that will be added is the **site** endpoint.
 
-The `get_sites` method of our `dnaCenterApi` **client** targets the /dna/intent/api/v1/site endpoint and takes a single parameter named **params**.  Since this is specifically wrapping a GET request, the **params** parameter allows you to pass a dictionary of key/value pairs that will serve as the query parameters for that call.  See the [DNA Center API](https://developer.cisco.com/docs/dna-center/#!cisco-dna-1-3-3-x-api-api-sites-get-site) for more details on fields available.
+The `get_sites` method of our `dnaCenterApi` **client** targets the /dna/intent/api/v1/site endpoint and takes a single parameter named **params**.  Since this is specifically wrapping a GET request, the **params** parameter allows you to pass a dictionary of key/value pairs that will serve as the query parameters for that call.  See the [DNA Center API](https://developer.cisco.com/docs/dna-center/#!cisco-dna-1-3-3-x-api-api-sites-get-site){target=_blank} for more details on fields available.
 
 ```python
     def get_sites(self, params: dict = None) -> dict:

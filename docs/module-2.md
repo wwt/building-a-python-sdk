@@ -15,7 +15,7 @@ Packages are directories that contain the `__init.py__` file and some number of 
 This Python file (module) will sub-class the `requests.Session` class and serve as our object to handle all things related to the HTTP(S) session with DNA Center.
 
 !!! info "Read More About Class Inheritance in Python"
-    [Real Python 'Super Change Your Classes with super()'](https://realpython.com/python-super/)
+    [Real Python 'Super Change Your Classes with super()'](https://realpython.com/python-super/){target=_blank}
 
 **STEP 2**. *ADD* the base session **text** (copy and paste the code below)
 
@@ -80,5 +80,5 @@ The `set_verify` method sets the boolean value for checking the validity of cert
 
 This simple example illustrates the power and simplicity of object oriented programming.
 
-See [`requests` documentation](https://docs.python-requests.org/en/master/) for more info on the library.
+See [`requests` documentation](https://docs.python-requests.org/en/master/){target=_blank} for more info on the library.
 
