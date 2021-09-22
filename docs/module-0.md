@@ -14,7 +14,7 @@ Many IDE's provide version control integration that allows you to utilize the UI
 
 ## STEPS
 
-**STEP 1.** *NAVIGATE* to the repo on GitHub :arrow_right: [building-a-python-sdk](https://github.com/wwt/building-a-python-sdk) (Login to GitHub if required)
+**STEP 1.** *NAVIGATE* to the repo on GitHub :arrow_right: [building-a-python-sdk](https://github.com/wwt/building-a-python-sdk){target=_blank} (Login to GitHub if required)
 
 **STEP 2.** *CLICK* the **Code** button 
 
