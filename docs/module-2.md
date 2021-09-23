@@ -4,9 +4,11 @@
 
 Packages are directories that contain the `__init.py__` file and some number of Python files called modules.   This section will guide you through creating the first Python module which will handle the `session` functionality.
 
-> *Modules in Python are simply Python files with a .py extension. The name of the module will be the name of the file. A Python module can have a set of functions, classes or variables defined and implemented.*
->
-> ​	*ref: https://www.learnpython.org/en/Modules_and_Packages*
+!!! quote "Python Modules"
+
+    _Modules in Python are simply Python files with a .py extension. The name of the module will be the name of the file. A Python module can have a set of functions, classes or variables defined and implemented._
+
+    **Reference: [https://www.learnpython.org/en/Modules_and_Packages](https://www.learnpython.org/en/Modules_and_Packages "Python Modules Description Reference"){target=_blank}**
 
 ## Create the Module File
 
